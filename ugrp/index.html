@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, height=device-height, width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+    <link rel="icon" href="img/showcase-icon.png">
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/jquery.mobile-1.4.5.js"></script>
+    <script src="js/jquery-dateFormat.min.js"></script>
+    <script src="js/ugrp.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function (){ 
+            displaySchedule(0);
+            
+            $('#searchBar').keypress(function(event) {
+                if(event.keyCode == 13) {
+                    var searchFor = $("#searchBar").val();
+                    $("#searchBar").val("");
+                    displaySearchResults(searchFor);
+                }
+            });
+        });
+    </script>
+    <style>
+        .custom-li { 
+            margin: 0 !important;
+            border-radius: 0px;
+            border-bottom-right-radius: 0 !important; 
+            border-bottom-left-radius: 0 !important; 
+            border-width:0 !important;
+            font-size: 1.5em;
+        }
+        .no-padding {
+            padding: 0 !important;
+        }
+        .ui-btn {
+            background: #f3efe9 !important; 
+        }
+    </style>
+</head>
+
+<body> 
+    <div data-role="page" style="background-color:#eeeeee;">
+        <div id="leftpanel" data-role="panel" data-position="left" data-display="push" style="background-color:#eeeeee;">
+            <ul data-role="listview" style="font-size: 1.5em;">
+                <li data-icon='false'><a class='menu-btn' href="#"></a></li>
+                <li data-icon='false'><a class='menu-btn' onClick="displaySchedule(0);">Schedule</a></li>
+                <li data-icon='false'><a class='menu-btn' onClick="displaySchedule(0,'mySchedule');">MySchedule</a></li>
+                <div data-role="collapsible" data-iconpos="right" class="custom-li">
+                    <h3>Programs</h3>
+                    <ul data-role="listview">
+                        <li data-icon='false'><a class='menu-btn' onClick="displayList('poster');">&nbsp;&nbsp;&nbsp;Poster Presentations</a></li>
+                        <li data-icon='false'><a class='menu-btn' onClick="displayList('paper');">&nbsp;&nbsp;&nbsp;Paper Presentations</a></li>
+                        <li data-icon='false'><a class='menu-btn' onClick="displayList('performance');">&nbsp;&nbsp;&nbsp;Performances</a></li>
+                    </ul>
+                </div>
+                <li data-icon='false'><a class='menu-btn' onClick="displayMap();">Map</a></li>
+                <li data-icon='false'><a class='menu-btn' href="http://www.svsu.edu/ugrp/">UGRP Website</a></li>
+                <li data-icon='false'><a class='menu-btn' href="#"></a></li>
+            </ul>
+        </div>
+        <div id="header" data-role="header" style="background-color:#F8EEDF;">
+            <div class="ui-grid-b" style="background-color:#C25150;">
+                <div class="ui-block-a">
+                    <a href="#leftpanel" data-role="button" data-iconpos="notext" data-icon="bars"></a>
+                </div><div class="ui-block-b">
+                </div><div class="ui-block-c">
+                    <input type="search" id="searchBar" name="searchBar" placeholder="search">
+                </div>
+            </div>
+            <img src="img/showcase-banner.png" width="100%">
+        </div>
+        <div id="body" data-role="main" data-role="content" class="ui-content" style="padding-top:0 !important; background-color:#eeeeee;">
+        </div>
+    </div>
+</body>
+</html>
