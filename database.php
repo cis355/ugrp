@@ -1,10 +1,10 @@
 <?php
 class Database 
 {
-	private static $dbName = '' ; 
+	private static $dbName = 'gcorser_projects' ; 
 	private static $dbHost = 'localhost' ;
-	private static $dbUsername = '';
-	private static $dbUserPassword = '';
+	private static $dbUsername = 'alpero';
+	private static $dbUserPassword = 'svsumfsm2017';
 	
 	private static $cont  = null;
 

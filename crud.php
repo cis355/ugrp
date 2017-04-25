@@ -82,7 +82,7 @@
     
     // Return a query from the database.
     function query($sql) {
-        require_once("../database.php");
+        require_once("database.php");
         $pdo = Database::connect();
         $q = $pdo->query($sql);
         Database::disconnect();
@@ -91,7 +91,7 @@
     
     // Prepares and Executes a SQL command.
     function prepare($sql, $values) {
-        require_once("../database.php");
+        require_once("database.php");
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $q = $pdo->prepare($sql);
